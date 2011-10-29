@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	background-color: #c8c6c6;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../images/body-background.jpg);
+	background-repeat: repeat;
+}
+#logo {
+	margin: 0 auto;
+	background-image:url(../images/kevnsteph_logo.jpg);
+	background-repeat:no-repeat;
+	background-position: 50% 0;
+	width: 1000px;
+	margin-top: 200px;
+}
+#logo p {
+	text-align: center;
+}
+body,td,th {
+	font-size: 14px;
+	color:#CCC;
+}
+a:link {
+	color: #FFF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #FFF;
+}
+a:hover {
+	text-decoration: none;
+	color: #F03;
+}
+a:active {
+	text-decoration: none;
+	color: #FFF;
+}
+#wrapper{
+	margin: 0 auto;
+	width: 1000px;
+}
+#header{
+	background-image:url(../images/kevnsteph_logo.png);
+	background-repeat: no-repeat;
+	background-position:left;
+	height: 90px;
+	padding-top: 40px;
+	padding-left: 450px;
+}
+
+#slider{
+	margin: 5px 0 5px 0;
+	height: 300px;
+	position: relative;
+	z-index: -1;
+}
+
+#slider img {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#slider img.active {
+	display: block;
+}
+#body{
+	margin: 5px 0 5px 0;
+	height:auto;
+}
+#news-feed{
+	height: auto;
+	background-color:#292929;
+	width: 75%;
+	float:left;
+	padding: 30px 30px 30px 30px;
+	border-top-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
+	border-width: .1em; 
+	border-style: outset;
+	border-color: #000;
+}
+
+#ads{
+	padding: 10px 10px 10px 10px;
+	background-color:#414141;
+	width: 16%;
+	float: right;
+	height: auto;
+	border-width: .1em; 
+	border-style: outset;
+	border-color: #000;
+}
+.feed_bg{
+	background-color:#414141;
+	border-radius: 10px;
+	moz-border-radius: 10px;
+	webkit-border-radius: 10px;
+	height: 100px;
+}
+.feed_title_new{
+	padding: 10px;
+	float:left;
+	width: 500px;
+	background-image:url(../images/new.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	background-color:#414141;
+	border-radius: 10px;
+	moz-border-radius: 10px;
+	webkit-border-radius: 10px;
+	height: 80px;
+}
+.feed_title{
+	padding: 10px;
+	float:left;
+	width: 500px;
+	background-color:#414141;
+	border-radius: 10px;
+	moz-border-radius: 10px;
+	webkit-border-radius: 10px;
+	height: 80px;
+}
+.feed_title h1 {
+	font-size:14px;
+	margin-top: -2px;
+	border-bottom: 1px dotted;
+	padding-bottom:5px;
+	margin-bottom: 10px;
+	border-color: #CCC;
+}
+.feed_title_new h1 {
+	font-size:14px;
+	margin-top: -2px;
+	border-bottom: 1px dotted;
+	padding-left: 50px;
+	padding-bottom:5px;
+	margin-bottom: 10px;
+	border-color: #CCC;
+}
+.feed_button{
+	margin-top: 2px;
+	margin-right: 2px;
+	float: right;
+	width: 120px;
+	height: 96px;
+	background-color:#333333;
+	background-image:url(../images/bt_view_photos_off.jpg);
+	background-repeat: no-repeat;
+	border-radius: 0 10px 10px 0;
+}
+.feed_button:hover{
+	margin-top: 2px;
+	margin-right: 2px;
+	float: right;
+	width: 120px;
+	height: 96px;
+	background-color:#302f2f;
+	background-image:url(../images/bt_view_photos_on.jpg);
+	background-repeat: no-repeat;
+	border-radius: 0 10px 10px 0;
+}
+#wrapper #body #news-feed h1 {
+	border-bottom: 1px dotted #F03;
+}
+
+#google-ad-header{
+	float:right;
+	margin-top: -60px;
+}
