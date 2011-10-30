@@ -23,7 +23,7 @@ img
 
 #full_view
 {
-	visibility: hidden;
+	display: none;
 	margin: auto;
 	width: 1250px;
 	height: 800px;
@@ -61,6 +61,12 @@ img
 	height: 50px;
 	opacity: 0.4;
 	cursor: pointer;
+}
+
+#fv_close:hover
+{
+	opacity: 1;
+	background: #C00;	
 }
 
 .fv_close_cross

@@ -7,10 +7,7 @@ $("#gallery-wrapper").ready(function(event)
 	
 $("#fv_close").ready(function(event)
 	{
-		var fv_close = $($("#fv_close").get(0));
-		fv_close.hover( function(event) { fv_close.css("opacity", "1").css("background", "#C00"); },
-						function(event) { fv_close.css("opacity", ".4").css("background", ""); } );
-		fv_close.click(function(event) { hide_full_view() });
+		$("#fv_close").click(function(event) { hide_full_view() });
 	});
 	
 $("#fv_top_ad").load(function(event)
@@ -32,29 +29,33 @@ function move_wrapper()
 	.css("left", left_margin + "px");
 }
 
+function thumbnailClick(event)
+{
+	if(!$("#full_view").is(":visible"))
+	{
+		$("#fv_pic").remove();
+		$("#fv_loading").show();
+		show_full_view();
+		load_fv_pic(event);
+		event.stopImmediatePropagation();
+		event.stopPropagation();	
+	}
+}
+
 function init()
 {
-	$(".thumb_img").live("click", function(event) 
-		{ 
-			$("#fv_pic").remove();
-			$("#fv_loading").show();
-			show_full_view();
-			load_fv_pic(event);
-			event.stopImmediatePropagation();
-			event.stopPropagation();
-		});
+	$(".thumb_img").live("click", thumbnailClick);
 	
 	var move_stuff = function(event) 
 					 {
 						 move_full_view();
 						 move_wrapper();
 						 move_fv_nav();
-						 move_fv_pic();
+						 //move_fv_pic();
 					 }
 	$(document).scroll(move_stuff);
 	$(window).resize(move_stuff);
 		
-	//$("#full_view").click(function(event) { event.stopPropagation() });
 	$(document).bind("click", hide_fv_on_click_outside);
 }
 
@@ -80,7 +81,7 @@ function load_fv_pic(event)
 
 function hide_fv_on_click_outside(event)
 {
-	var top_ad = $($("#fv_top_ad").get(0));
+	var top_ad = $("#fv_top_ad");
 	if(top_ad.is(":visible"))
 	{
 		var left = top_ad.offset().left;
@@ -99,9 +100,11 @@ function hide_fv_on_click_outside(event)
 		}
 	}
 	
-	var fullview = $($("#full_view").get(0));
+	var fullview = $("#full_view");
 	if(fullview.is(":visible"))
 	{
+		//console.log("hiding fv, " + fullview.is(":visible"));
+		
 		var left = fullview.offset().left;
 		var right = left + fullview.width();
 		var top = fullview.offset().top;
@@ -113,8 +116,9 @@ function hide_fv_on_click_outside(event)
 		   event.pageY > bottom
 		  )
 		   hide_full_view();
+		   
+		event.stopPropagation();
 	}
-	event.stopPropagation();
 }
 
 function move_fv_nav()
@@ -153,45 +157,34 @@ function move_full_view()
 	// -----------------------------------------------
 	
 	$("#fv_pic").height(box_height);
-	var pic_width = $("#fv_pic").width();
-	$("#fv_pic").css("left", (box_width - 50 - pic_width) / 2);
+	$("#fv_pic").css("left", (box_width - 50 - $("#fv_pic").width()) / 2);
 }
 
 function show_full_view()
 {
-$("body").css("overflow", "hidden");
-$("#gallery-wrapper").css("opacity", ".4");
-$("#wrapper").css("opacity", "0");
-//$("#wrapper").attr("disabled", "disabled");
-
-move_full_view();
-$("#full_view").css("visibility", "visible");
-$("#fv_top_ad_iframe").get(0).contentWindow.location.replace( $("#fv_top_ad_iframe").attr("src") + "?time=" + new Date().getTime());
-$("#fv_top_ad_iframe").load(function(event) {
- $("#fv_top_ad").show();
-});
+	$("body").css("overflow", "hidden");
+	$("#gallery-wrapper").css("opacity", ".4");
+	$("#wrapper").css("opacity", "0");
+	//$("#wrapper").attr("disabled", "disabled");
+	
+	move_full_view();
+	$("#full_view").css("display", "block");
+	$("#fv_top_ad_iframe").get(0).contentWindow.location.replace( $("#fv_top_ad_iframe").attr("src") + "?time=" + new Date().getTime());
+	$("#fv_top_ad_iframe").load(function(event) {
+	 	$("#fv_top_ad").show();
+	});
+	
+	$(".thumb_img").css("cursor", "default");
 }
+
 function hide_full_view()
 {
 	$("body").css("overflow", "");
 	$("#gallery-wrapper").css("opacity", "1");
 	$("#wrapper").css("opacity", "1");
 	//$("#wrapper").attr("disabled", "");
-	$("#full_view").css("visibility", "hidden");
+	$("#full_view").css("display", "none");
 	$("#fv_top_ad").hide();
-}
-
-function lol()
-{
-	$.get("fvimage.php",
-		  {"url": encodeURI("photos/events/bruinbash2011/IMG_9538.jpg")},
-		  function(bodytxt, status, xhr)
-		  {
-			  //alert(bodytxt);
-			  $("#full_view").remove("#fv_pic");
-			  $("#full_view").append(bodytxt);
-		  }
-		 );
-		 
-	show_full_view();
+	
+	$(".thumb_img").css("cursor", "pointer");
 }
