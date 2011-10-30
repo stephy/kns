@@ -52,6 +52,53 @@ img
 	height: 100%;
 }
 
+#link_button
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 0px;
+	bottom: 0px;
+	opacity: 0.4;
+}
+
+#link_button:hover
+{
+	opacity: 1;	
+	background: #C00;
+	cursor: pointer;
+}
+
+#link_button img
+{
+	width: inherit;
+	height:: inherit;
+}
+
+#link_url
+{
+	position: absolute;
+	width: 400px;
+	height: 60px;
+	right: 50px;
+	bottom: 0px;
+	z-index: 100;
+}
+
+#link_url_tb
+{
+	background: #111;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	display: none;
+	resize: none;
+	height: 90%;
+	width: 100%;
+	color: #FFF;
+	border-color: #000;
+}
+
 #fv_close
 {
 	position: absolute;
@@ -154,6 +201,7 @@ img
 	margin-left: -364px;
 	bottom: -100px;
 }
+
 #fv_top_ad_iframe
 {
 border: hidden;

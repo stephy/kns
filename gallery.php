@@ -44,6 +44,14 @@ if(isset($_GET["album"])){
         <div class="fv_close_cross" id="cross2"></div>
     </div>
     
+    <div id="link_button">
+    	<img src="images/link.png" />
+    </div>
+    
+    <div id="link_url">
+    	<textarea id="link_url_tb" readonly="readonly"></textarea>
+    </div>
+    
     <div id="fv_loading">
     	<img src="images/ajax-loader.gif" />
     </div>

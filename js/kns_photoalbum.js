@@ -6,12 +6,17 @@ $(document).ready(
 	function()
 	{
 		moveWrapper();
+		
 		$("#fv_close").click(hideFullview);
+		
 		$(".thumb_img").live("click", thumbnailClick);
-		$("#fv_topAd").click(
-			function(event2) 
+		
+		$("#link_button").click(linkButtonClick);
+			
+		$("#fv_top_ad").click(
+			function(event) 
 			{ 
-				event2.stopPropagation(); 
+				event.stopPropagation(); 
 			});
 		
 		$(window).resize(
@@ -93,6 +98,17 @@ function moveWrapper()
 *              Display
 *********************************************/
 
+function linkButtonClick(event)
+{
+	$("#link_url_tb").toggle();
+	if($("#link_url_tb").is(":visible"))
+	{
+		$("#link_url_tb").get(0).select();
+		if(window.clipboardData)
+			var r = clipboardData.setData('Text',$("#link_url_tb").text());  
+	}
+}
+
 function clickOutsideToHideFullview(event)
 {
 	var topAd = $("#fv_topAd");
@@ -149,6 +165,8 @@ function showFullview()
 	});
 	
 	$(".thumb_img").css("cursor", "default");
+	
+	$("#link_url_tb").hide();
 }
 
 function hideFullview()
@@ -193,6 +211,7 @@ function loadFullviewImage(url)
 		  {"url": url},
 		  function(bodytxt, status, xhr)
 		  {
+			  $("#link_url_tb").text(document.location.href + "&img=" + url.substring(url.lastIndexOf('%2F')));
 			  $("#fv_pic_div").append(bodytxt);
 			  $("#fv_loading").hide();
 			  $("#fv_pic").hide();
