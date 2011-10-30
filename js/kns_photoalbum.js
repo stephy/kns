@@ -5,40 +5,35 @@
 $(document).ready(
 	function()
 	{
-		$("#gallery-wrapper").ready(function(event)
-		{
-			moveWrapper();
-		});
-		
-		$("#fv_close").ready(function(event)
-			{
-				$("#fv_close").click(hideFullview);
-			});
-			
-		$("#fv_topAd").load(function(event)
-			{
-				$("#fv_topAd").click(function(event2) 
-					{ 
-						event2.stopPropagation(); 
-					});
-			});
-			
+		moveWrapper();
+		$("#fv_close").click(hideFullview);
 		$(".thumb_img").live("click", thumbnailClick);
+		$("#fv_topAd").click(
+			function(event2) 
+			{ 
+				event2.stopPropagation(); 
+			});
 		
-		var move_stuff = function(event) 
-						 {
-							 moveFullview();
-							 moveWrapper();
-							 moveFullviewNavigation();
-						 }
-						 
-		$(window).resize(move_stuff);
+		$(window).resize(
+			function(event) 
+			{
+				moveFullview();
+				moveWrapper();
+				moveFullviewNavigation();
+			});
 			
 		$(document).bind("click", clickOutsideToHideFullview);
+		
+		var img = getUrlParameter('img');
+		if(img != "")
+		{
+			var f = getUrlParameter('album') + "/" + img;
+			loadAndShow(f);
+		}	
 	});
-	
-	
-	
+
+
+
 /********************************************
 *              Positioning
 *********************************************/
@@ -162,7 +157,7 @@ function hideFullview()
 	$("#gallery-wrapper").css("opacity", "1");
 	$("#wrapper").css("opacity", "1");
 	$("#full_view").hide();
-	$("#fv_topAd").hide();
+	$("#fv_top_ad").hide();
 	$(".thumb_img").css("cursor", "pointer");
 }
 
@@ -177,20 +172,25 @@ function thumbnailClick(event)
 {
 	if(!$("#full_view").is(":visible"))
 	{
-		$("#fv_pic").remove();
-		$("#fv_loading").show();
-		showFullview();
-		loadFullviewImage(event);
+		loadAndShow($(event.target).attr("id"));
 		event.stopImmediatePropagation();
-		event.stopPropagation();	
+		event.stopPropagation();
 	}
 }
 
-function loadFullviewImage(event)
+function loadAndShow(url)
+{
+	$("#fv_pic").remove();
+	$("#fv_loading").show();
+	showFullview();
+	loadFullviewImage(url);
+}
+
+function loadFullviewImage(url)
 {
 	$.get(
 		  "fvimage.php",
-		  {"url": $(event.target).attr("id")},
+		  {"url": url},
 		  function(bodytxt, status, xhr)
 		  {
 			  $("#fv_pic_div").append(bodytxt);
@@ -203,5 +203,17 @@ function loadFullviewImage(event)
 				});
 		  }
 	);
+}
+
+function getUrlParameter(name)
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.href);
+  if(results == null)
+    return "";
+  else
+    return results[1];
 }
 
