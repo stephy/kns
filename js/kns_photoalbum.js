@@ -33,11 +33,20 @@ $(document).ready(
 		if(img != "")
 		{
 			var f = getUrlParameter('album') + "/" + img;
+			f = replaceAll(f, "/", "%2F");
 			loadAndShow(f);
 		}	
 	});
 
-
+function replaceAll(string, searchTerm, replacement)
+{
+	var j = string.replace(searchTerm, replacement);
+	var k = j.replace(searchTerm, replacement);
+	if(j != k)
+		return replaceAll(k, searchTerm, replacement);
+	else
+		return k;
+}
 
 /********************************************
 *              Positioning
@@ -211,7 +220,12 @@ function loadFullviewImage(url)
 		  {"url": url},
 		  function(bodytxt, status, xhr)
 		  {
-			  $("#link_url_tb").text(document.location.href + "&img=" + url.substring(url.lastIndexOf('%2F')));
+			  var href = document.location.href;
+			  var end = Math.max(href.indexOf("&"));
+			  href = href.substring(0, end < 0 ? href.length : end);
+			  var fname = url.substring(url.lastIndexOf("%2F") + 3);
+			  $("#link_url_tb").text(href + "&img=" + fname);
+			  
 			  $("#fv_pic_div").append(bodytxt);
 			  $("#fv_loading").hide();
 			  $("#fv_pic").hide();
@@ -226,13 +240,13 @@ function loadFullviewImage(url)
 
 function getUrlParameter(name)
 {
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]" + name + "=([^&#]*)";
-  var regex = new RegExp(regexS);
-  var results = regex.exec(window.location.href);
-  if(results == null)
-    return "";
-  else
-    return results[1];
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)";
+	var regex = new RegExp(regexS);
+	var results = regex.exec(window.location.href);
+	if(results == null)
+	return "";
+	else
+	return results[1];
 }
 
