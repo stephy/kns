@@ -167,7 +167,7 @@ function showFullview()
 	$("#wrapper").css("opacity", "0");
 
 	moveFullview();
-	$("#full_view").show();
+	$("#full_view").fadeIn(50);
 	
 	var ad = $("#fv_top_ad_iframe");
 	ad.get(0).contentWindow.location.replace( ad.attr("src") + "?time=" + new Date().getTime());
@@ -210,7 +210,7 @@ function thumbnailClick(event)
 function loadAndShow(url)
 {
 	$("#fv_pic").remove();
-	$("#fv_loading").show();
+	$("#fv_loading").fadeIn('fast');
 	showFullview();
 	$.get(
 		  "fvimage.php",
@@ -224,10 +224,10 @@ function loadAndShow(url)
 			  $("#link_url_tb").text(href + "&img=" + fname);
 			  
 			  $("#fv_pic_div").append(bodytxt);
-			  $("#fv_loading").hide();
 			  $("#fv_pic").hide();
 			  $("#fv_pic").load(function(event)
 			  	{
+					$("#fv_loading").fadeOut();
 					moveFullview();
 					$("#fv_pic").fadeIn();
 				});
