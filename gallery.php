@@ -102,7 +102,7 @@ foreach($files as $key => $value)
 		$thumb = new SimpleImage();
 		$thumb->load($value);
 		$thumb->resizeToHeight($thumb_height);
-		$thumb->save("$dir/thumbs/$fname", IMAGETYPE_JPEG, 90, null);
+		$thumb->save("$dir/thumbs/$fname", IMAGETYPE_JPEG, 90, null);	
 	}
 	
 	$extra_class = "";
@@ -115,7 +115,6 @@ foreach($files as $key => $value)
 	//$link = Utils::make_a($img_field, "javascript: show_full_view();");
 	echo Utils::make_div($img_field, "thumb_box$extra_class", "div$key");
 }
-
 
 ?>
 

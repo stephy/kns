@@ -52,13 +52,29 @@
          <!---  FEED -->
         <div class="feed_bg">
           <div class="feed_title_new" >
+            <h1>October 29, 2011 | UCLA Homecoming 2011 Photos BATCH 2</h1>
+            Photos taken at the UCLA Event Homecoming 2011.This marks the end of Homecoming Photos. If you didn't make it this time. We apologize, look for us at the next UCLA Event! :)</div>
+          <div class="feed_button"><a href="gallery.php?album=gallery/events/ucla_events/ucla_homecoming_2011_2"><img src="images/empty_hover.png" width="110" height="98" border="0"></a></div>
+          </div> <br>
+        <!---  FEED -->
+        <!---  FEED -->
+        <div class="feed_bg">
+          <div class="feed_title_new" >
+            <h1>October 29, 2011 | UCLA Homecoming 2011 Photos BATCH 1</h1>
+            Photos taken at the UCLA Event Homecoming 2011.These are some close up photos UCLA Homecoming 2011. If you didn't make it this time. We apologize, look for us at the next UCLA Event! :)</div>
+          <div class="feed_button"><a href="gallery.php?album=gallery/events/ucla_events/ucla_homecoming_2011_1"><img src="images/empty_hover.png" width="110" height="98" border="0"></a></div>
+          </div> <br>
+        <!---  FEED -->
+         <!---  FEED -->
+        <div class="feed_bg">
+          <div class="feed_title" >
             <h1>Sept 18, 2011 | UCLA Bruin Bash 2011 Photos BATCH 2</h1>
             Photos taken at the UCLA Event Bruin Bash 2011.This marks the end of Bruin Bash Photos. If you didn't make it this time. We apologize, look for us at the next UCLA Event! :)</div>
           <div class="feed_button"><a href="gallery.php?album=gallery/events/ucla_events/bruin_bash_2011_2"><img src="images/empty_hover.png" width="110" height="98" border="0"></a></div>
           </div> <br>
         <!---  FEED -->
           <div class="feed_bg">
-          <div class="feed_title_new" >
+          <div class="feed_title" >
             <h1>Sept 18, 2011 | UCLA Bruin Bash 2011 Photos BATCH 1</h1>
             Photos taken at the UCLA Event Bruin Bash 2011. If you took a photo at our photobooth and it is not showing here, we will be posting more pictures tomorrow. Come back and check it out!</div>
           <div class="feed_button"><a href="gallery.php?album=gallery/events/ucla_events/bruin_bash_2011"><img src="images/empty_hover.png" width="110" height="98" border="0"></a></div>

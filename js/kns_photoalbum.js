@@ -63,10 +63,21 @@ function moveFullviewNavigation()
 
 function moveFullview()
 {
+	var w = 500;
+	var h = 500;
+	
+	var fv_pic = $("#fv_pic");
+	if(fv_pic.is(":visible"))
+	{
+		w = fv_pic.attr("w");
+		h = fv_pic.attr("h");
+	}
+	
+	var r = w / h;
 	var win_width = window.innerWidth;
 	var win_height = window.innerHeight;
-	var box_height = Math.min(683, win_height - 100, (win_width - 50) / 3 * 2);
-	var box_width = Math.min(1074, win_width, box_height / 2 * 3 + 50);
+	var box_height = Math.min(h, win_height - 100, (win_width - 50) / r);
+	var box_width = Math.min(Math.max(w + 50, 950), win_width, Math.max(box_height * r + 50, 950));
 	var left_margin = Math.max(0, (win_width - box_width) / 2);
 	var top_margin = 100;
 	
@@ -89,8 +100,8 @@ function moveFullview()
 	
 	// -----------------------------------------------
 	
-	$("#fv_pic").height(box_height);
-	$("#fv_pic").css("left", (box_width - 50 - $("#fv_pic").width()) / 2);
+	fv_pic.height(box_height);
+	fv_pic.css("left", (box_width - 50 - $("#fv_pic").width()) / 2);
 }
 
 function moveWrapper()
@@ -162,12 +173,12 @@ function clickOutsideToHideFullview(event)
 
 function showFullview()
 {
-	$("body").css("overflow", "hidden");
-	$("#gallery-wrapper").css("opacity", ".4");
-	$("#wrapper").css("opacity", "0");
-
 	moveFullview();
-	$("#full_view").fadeIn(50);
+	$("#full_view").fadeIn('fast');
+	
+	$("body").css("overflow", "hidden");
+	$("#gallery-wrapper").css("opacity", ".2");
+	$("#wrapper").css("opacity", "0");
 	
 	var ad = $("#fv_top_ad_iframe");
 	ad.get(0).contentWindow.location.replace( ad.attr("src") + "?time=" + new Date().getTime());
@@ -228,8 +239,8 @@ function loadAndShow(url)
 			  $("#fv_pic").load(function(event)
 			  	{
 					$("#fv_loading").fadeOut();
-					moveFullview();
 					$("#fv_pic").fadeIn();
+					moveFullview();
 				});
 		  }
 	);
