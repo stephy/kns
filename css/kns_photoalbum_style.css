@@ -13,6 +13,23 @@ img
 	border-size: 0px;	
 }
 
+#initload
+{
+	position: absolute;
+	width: 300px;
+	height: 300px;	
+	display: none;
+	background: #111;
+	z-index: 1000;
+}
+
+#initload img
+{
+	position: absolute;
+	left: 125px;
+	top: 125px;
+}
+
 #gallery-wrapper
 {
 	position: absolute;
