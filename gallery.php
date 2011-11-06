@@ -35,9 +35,17 @@ if(isset($_GET["album"])){
 <iframe id="fv_top_ad_iframe" src="fvtopad.php"></iframe>
 </div>
 
+<div id="initload">
+	<img src="images/ajax-loader.gif" />
+</div>
+
 <div id="full_view">
 	<div class="fv_nav" id="next"></div>
 	<div class="fv_nav" id="prev"></div>
+
+	<div id="fv_loading">
+        <img src="images/ajax-loader.gif" />
+    </div>
 
 	<div id="fv_close">
     	<div class="fv_close_cross" id="cross1"></div>
@@ -52,9 +60,7 @@ if(isset($_GET["album"])){
     	<textarea id="link_url_tb" readonly="readonly"></textarea>
     </div>
     
-    <div id="fv_loading">
-    	<img src="images/ajax-loader.gif" />
-    </div>
+   
     
     <div id="fv_pic_div">
     	<!--<img id="fv_pic" src="photos/events/bruinbash2011/IMG_9486.jpg"/>-->

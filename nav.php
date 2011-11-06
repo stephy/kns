@@ -40,7 +40,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div id="nav">
     <ul id="navlist">
     <li><a href="index.php" title="Los Angeles Photographers">HOME</a></li>
-    <li><a href="portfolio.php">PORTFOLIO</a></li>
+    <li><a href="gallery.php?album=portfolio">PORTFOLIO</a></li>
     <li><a href="events_gallery.php">EVENTS GALLERY</a></li>
     <li><a href="about_us.php" title="Los Angeles Photographers">ABOUT US</a></li>
     <li><a href="equipment.php">EQUIPMENT</a></li>

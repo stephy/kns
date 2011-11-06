@@ -22,7 +22,8 @@ $(document).ready(
 		$(window).resize(
 			function(event) 
 			{
-				moveFullview();
+				if($("#full_view").is(":visible"))
+					moveFullview();
 				moveWrapper();
 				moveFullviewNavigation();
 			});
@@ -61,6 +62,17 @@ function moveFullviewNavigation()
 	
 }
 
+function moveInitload()
+{
+	var win_width = window.innerWidth;
+	var win_height = window.innerHeight;
+	
+ 	var initload = $("#initload");
+	initload
+	.css("left", (win_width - initload.width())/2)
+	.css("top", (win_height - initload.height())/2);
+}
+
 function moveFullview()
 {
 	var w = 500;
@@ -79,7 +91,7 @@ function moveFullview()
 	var box_height = Math.min(h, win_height - 100, (win_width - 50) / r);
 	var box_width = Math.min(Math.max(w + 50, 950), win_width, Math.max(box_height * r + 50, 950));
 	var left_margin = Math.max(0, (win_width - box_width) / 2);
-	var top_margin = 100;
+	var top_margin = Math.max(100, (win_height - box_height) / 2);
 	
 	$("#full_view")
 	.css("left", left_margin + "px")
@@ -178,7 +190,7 @@ function showFullview()
 	
 	$("body").css("overflow", "hidden");
 	$("#gallery-wrapper").css("opacity", ".2");
-	$("#wrapper").css("opacity", "0");
+	$("#header").css("opacity", "0");
 	
 	var ad = $("#fv_top_ad_iframe");
 	ad.get(0).contentWindow.location.replace( ad.attr("src") + "?time=" + new Date().getTime());
@@ -195,7 +207,7 @@ function hideFullview()
 {
 	$("body").css("overflow", "");
 	$("#gallery-wrapper").css("opacity", "1");
-	$("#wrapper").css("opacity", "1");
+	$("#header").css("opacity", "1");
 	$("#full_view").fadeOut("fast");
 	$("#fv_top_ad").fadeOut("fast");
 	$(".thumb_img").css("cursor", "pointer");
@@ -221,8 +233,10 @@ function thumbnailClick(event)
 function loadAndShow(url)
 {
 	$("#fv_pic").remove();
-	$("#fv_loading").fadeIn('fast');
-	showFullview();
+	
+	moveInitload();
+	$("#initload").fadeIn('fast');
+	
 	$.get(
 		  "fvimage.php",
 		  {"url": url},
@@ -236,10 +250,13 @@ function loadAndShow(url)
 			  
 			  $("#fv_pic_div").append(bodytxt);
 			  $("#fv_pic").hide();
-			  moveFullview();
+			  $("#initload").hide();
+			  $("#fv_loading").show();
+			  showFullview();
+			  //moveFullview();
 			  $("#fv_pic").load(function(event)
 			  	{
-					$("#fv_loading").fadeOut();
+					$("#fv_loading").hide();
 					$("#fv_pic").fadeIn();
 					//moveFullview();
 				});
