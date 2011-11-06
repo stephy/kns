@@ -186,7 +186,7 @@ function clickOutsideToHideFullview(event)
 function showFullview()
 {
 	moveFullview();
-	$("#full_view").fadeIn('fast');
+	$("#full_view").fadeIn();
 	
 	$("body").css("overflow", "hidden");
 	$("#gallery-wrapper").css("opacity", ".2");
@@ -235,7 +235,7 @@ function loadAndShow(url)
 	$("#fv_pic").remove();
 	
 	moveInitload();
-	$("#initload").fadeIn('fast');
+	$("#initload").fadeIn();
 	
 	$.get(
 		  "fvimage.php",
@@ -250,15 +250,13 @@ function loadAndShow(url)
 			  
 			  $("#fv_pic_div").append(bodytxt);
 			  $("#fv_pic").hide();
-			  $("#initload").hide();
-			  $("#fv_loading").show();
+			  
 			  showFullview();
-			  //moveFullview();
+
 			  $("#fv_pic").load(function(event)
 			  	{
-					$("#fv_loading").hide();
+					$("#initload").hide();
 					$("#fv_pic").fadeIn();
-					//moveFullview();
 				});
 		  }
 	);
