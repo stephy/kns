@@ -101,7 +101,7 @@ function moveFullview()
 	// -----------------------------------------------
 	
 	fv_pic.height(box_height);
-	fv_pic.css("left", Math.max(0, (box_width - 50 - w) / 2));
+	fv_pic.css("left", (box_width - 50 - box_height * r) / 2);
 }
 
 function moveWrapper()
