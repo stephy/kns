@@ -1,6 +1,17 @@
 // init
 $(document).ready(function(event)
 	{
+		
+		//controls for thumbs
+		$(".thumb").fadeTo("fast", 0.6);
+        $(".thumb").hover(function() {
+            $(this).fadeTo("fast", 1.0);
+        }, function() {
+            $(this).fadeTo("fast", 0.6);
+        });
+		
+		/* END CONTROLS */
+		
 		$("#fs_scroll_down").click(function(event)
 			{
 				FilmstripScroll("down");	

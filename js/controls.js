@@ -30,15 +30,6 @@ $('document').ready(function(){
 		$('#kevin-deng-content').hide();
 		$('#kevin-deng').show();
 	});
-	
-	
-	//controls for thumbs
-	$(".thumb").fadeTo("fast", 0.6);
-        $(".thumb").hover(function() {
-            $(this).fadeTo("fast", 1.0);
-        }, function() {
-            $(this).fadeTo("fast", 0.6);
-        });
 		
 	$(".thumb_photo").fadeTo("fast", 0.6);
         $(".thumb_photo").hover(function() {

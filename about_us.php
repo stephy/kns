@@ -22,13 +22,18 @@
 <div id="content">
     
     <!--about us -->
-    <div id="kevin-deng"></div>
+    <div id="kevin-deng" class="thumb_photo"></div>
     <div id="kevin-deng-content">
     <h1>Kevin Deng</h1>
+    <p>Kevin was born in China and grew up in Singapore. He moved to Los Angeles in 2009 to attend UCLA, majoring in Computer Science.</p>
+
+	<p>Years of math, science and engineering training have given him considerable technical aptitude and analytical acumen. This has allowed him to rapidly overcome any technical learning curves when it came to photography and post-processing.</p>
+
+<p>The technology is just a tool however; it is the application of it towards the creation of beautiful images that truly draws him to photographs.</p>
     
     </div>
     
-    <div id="stephani-alves"></div>
+    <div id="stephani-alves" class="thumb_photo"></div>
     <div id="stephani-alves-content">
     <h1>Stephani Alves</h1>
     </div>  
