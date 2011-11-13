@@ -15,17 +15,17 @@ $(document).ready(function(event)
 		
 		$(".thumb:not(.filler)").click(function(event)
 			{
-				var fname = $(event.target).attr("id");
-				//console.log(fname);
-				ViewPhoto(fname);
+				ViewPhoto($(event.target).attr("id"));
 			});
 		
 		$(window).resize(Resize);
 		
 		Resize();
 		
-		// ----------------
-		// loading animation
+		
+		/****************************************
+		 *********  loading animation  **********
+		 ***************************************/
 		var opts = 
 		{
 		  lines: 12, // The number of lines to draw
@@ -40,7 +40,8 @@ $(document).ready(function(event)
 		var target = $("#loading").get(0);
 		var spinner = new Spinner(opts).spin(target);
 		
-		//-----------------
+		// load first pic
+		ViewPhoto($(".thumb:not(.filler):first").children().attr("id"));
 	});
 
 // resize
@@ -141,6 +142,4 @@ function FilmstripScroll(direction)
 		{scrollTop: (direction == "down" ? "+=" : "-=") + scroll_amt}, 
 		{duration: 1000, easing: "easeInOutCubic"} 
 	);
-	
-	console.log($(".filler:first").position().top);
 }
