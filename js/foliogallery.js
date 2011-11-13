@@ -41,7 +41,7 @@ $(document).ready(function(event)
 function Resize(event)
 {
 	var win_w = window.innerWidth;
-	var win_h = window.innerHeight;
+	var win_h = window.innerHeight - 100;
 	
 	var box_h = Math.min(Math.max(600, win_h), 1185) - 10;
 	//console.log(win_w + " , " + win_h);
