@@ -2,7 +2,7 @@
 
 include "./utils.php";
 
-//sleep(2);
+sleep(2);
 
 $file = urldecode($_GET["url"]);
 $img = new SimpleImage();
