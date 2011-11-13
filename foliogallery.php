@@ -14,7 +14,6 @@
 </head>
 
 <body>
-<div id="wrapper-box">
 <?php include('navigation.php') ?>
 <div id="wrapper">
 
@@ -54,8 +53,6 @@
     <div id="viewer">
     	<div id="loading"></div>
     </div>
-
-</div>
 
 </div>
 </body>
