@@ -20,7 +20,7 @@ if(isset($_GET["album"])){
 
 <link href="css/kns_photoalbum_style.css" rel="stylesheet" type="text/css">
 <link href="css/navigation.css" rel="stylesheet" type="text/css">
-<link href="css/style_master.css" rel="stylesheet" type="text/css">
+<link href="css/master.css" rel="stylesheet" type="text/css">
 
 <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
@@ -64,7 +64,7 @@ if(isset($_GET["album"])){
 <div id="gallery-wrapper">
 
 <div id="wrapper">
-	<?php include "./nav.php";?>
+	<?php include "./navigation.php";?>
     <h1><?php ;
 	echo $page_title;
 	?></h1>
