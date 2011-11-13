@@ -1,9 +1,14 @@
 # this is the initialization
-Options         +FollowSymLinks
-RewriteEngine   On
-RewriteBase     /
+#Options         +FollowSymLinks
+#RewriteEngine   On
+#RewriteBase     /
 # these are the rewrite conditions
-RewriteCond     %{REQUEST_FILENAME}     !-f
-RewriteCond     %{REQUEST_FILENAME}     !-d
+#RewriteCond     %{REQUEST_FILENAME}     !-f
+#RewriteCond     %{REQUEST_FILENAME}     !-d
 # and finally, the rewrite rules
-RewriteRule portraits foliogallery.php?album=portfolio/portraits
+#RewriteRule home index.php
+#RewriteRule portraits foliogallery.php?album=portfolio/portraits
+#RewriteRule portraiture foliogallery.php?album=portfolio/portraits
+#RewriteRule landscapes.page foliogallery.php?album=portfolio/landscape
+#RewriteRule landscapes foliogallery.php?album=portfolio/landscape
+#RewriteRule ucla-events-photos ucla_events_photos.php

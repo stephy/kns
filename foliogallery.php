@@ -33,7 +33,7 @@
 		   die(mysql_error());
 		}
 		
-        $files = Utils::list_files_full_path("$dir/thumbs/");
+        $files = Utils::list_files_full_path("$dir/thumbs");
         foreach($files as $key => $value)
         {
             $pi = pathinfo($value);

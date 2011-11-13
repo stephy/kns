@@ -28,7 +28,8 @@ class Utils
 				}
 				
 				closedir($dh);
-				//sort($array);
+				sort($array, SORT_STRING);
+				//$array = array_reverse($array);
 				return $array;
 			}
 		}	
