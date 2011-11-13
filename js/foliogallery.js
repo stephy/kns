@@ -104,8 +104,8 @@ function PositionFullPic()
 	fvp.css({
 		"width" : new_w,
 		"height" : new_h,
-		"left" : left,
-		"top" : top
+		//"left" : left,
+		"margin-top" : top
 	});
 }
 

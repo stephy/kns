@@ -2,8 +2,6 @@
 
 include "./utils.php";
 
-sleep(2);
-
 $file = urldecode($_GET["url"]);
 $img = new SimpleImage();
 $img->load($file);

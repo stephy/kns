@@ -1,19 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
-
-body
-{
-	background: #030;	
+#wrapper{
+	margin:0 auto;
+	width:1000px;
 }
 
 #viewer
 {
-	position: absolute;
-	left: 210px;
-	top: 5px;
+	text-align:center;
+	float:right;
 	width: 790px;
-	height: 610px;	
-	vertical-align: middle;	
+	height: 610px;
+	background-color: rgba(0,0,0,0.5);	
 }
 
 .thumb
@@ -24,9 +22,7 @@ body
 
 #filmstrip_wrap
 {
-	position: absolute;
-	left: 5px;
-	top: 5px;
+	float:left;
 	width: 200px;
 	height: 610px;	
 	overflow: hidden;
@@ -59,12 +55,12 @@ body
 
 #fs_scroll_up
 {
-	top: 0px;	
+	top: 100px;	
 }
 
 #fs_scroll_down
 {
-	bottom: 0px;
+	bottom: 10px;
 }
 
 .filler
@@ -74,9 +70,8 @@ body
 	cursor: default !important;
 }
 
-#fv_pic
-{
-	position: absolute;	
+#fv_pic{
+	top:50%;
 }
 
 #loading
@@ -86,7 +81,7 @@ body
 	height: 50px;
 	left: 50%;
 	top: 50%;
-	margin-left: -25px;
-	margin-top: -25px;
+	margin-left: 80px;
+	margin-top: 80px;
 	display: none;
 }

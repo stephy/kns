@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-
+<link href="css/master.css" rel="stylesheet" type="text/css">
 <link href="css/foliogallery.css" rel="stylesheet" type="text/css">
 
 <script language="javascript" src="js/jquery-1.6.1.min.js"></script>
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<?php include('navigation.php') ?>
 <div id="wrapper">
 
     <div id="filmstrip_wrap">
