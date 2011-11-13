@@ -13,7 +13,12 @@ $(document).ready(function(event)
 			
 		$(".thumb:last").css("margin-bottom", "0px");
 		
-		$(".thumb:not(.filler)").click(ViewPhoto);
+		$(".thumb:not(.filler)").click(function(event)
+			{
+				var fname = $(event.target).attr("id");
+				//console.log(fname);
+				ViewPhoto(fname);
+			});
 		
 		$(window).resize(Resize);
 		
@@ -34,8 +39,9 @@ $(document).ready(function(event)
 		};
 		var target = $("#loading").get(0);
 		var spinner = new Spinner(opts).spin(target);
+		
+		//-----------------
 	});
-
 
 // resize
 function Resize(event)
@@ -54,9 +60,14 @@ function Resize(event)
 
 
 // view img
-function ViewPhoto(event)
+var currentPic = "";
+
+function ViewPhoto(fname)
 {
-	var fname = $(event.target).attr("id");
+	if(currentPic == fname)
+		return;
+	else
+		currentPic = fname;
 	
 	$("#fv_pic").fadeOut("slow");
 	$("#loading").fadeIn("slow");
@@ -120,14 +131,16 @@ function FilmstripScroll(direction)
 	
 	var vis_thumbs = Math.floor((fs_h + 5) / 205);
 	var scroll_amt = vis_thumbs * 205;
-	console.log(vis_thumbs + ", " + scroll_amt);
+	//console.log(vis_thumbs + ", " + scroll_amt);
 	
-	var first_filler_y = $(".filler:first").position().top;
-	if(first_filler_y <= fs_scr + fs_h && direction == "down")
+	if($(".filler:first").offset().top <= fs.offset().top + fs_h + 6
+			&& direction == "down")
 		scroll_amt = 0;
 	
 	fs.animate(
 		{scrollTop: (direction == "down" ? "+=" : "-=") + scroll_amt}, 
 		{duration: 1000, easing: "easeInOutCubic"} 
 	);
+	
+	console.log($(".filler:first").position().top);
 }
