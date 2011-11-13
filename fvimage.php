@@ -1,5 +1,15 @@
 <?php
 
-echo "<img id=\"fv_pic\" src=\"" . urldecode($_GET["url"]) . "\"/>";
+include "./utils.php";
+
+//sleep(2);
+
+$file = urldecode($_GET["url"]);
+$img = new SimpleImage();
+$img->load($file);
+$w = $img->getWidth();
+$h = $img->getHeight();
+
+echo "<img id=\"fv_pic\" w=\"$w\" h=\"$h\" src=\"" . $file . "\"/>";
 
 ?>

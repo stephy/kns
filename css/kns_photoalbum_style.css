@@ -13,6 +13,23 @@ img
 	border-size: 0px;	
 }
 
+#initload
+{
+	position: fixed;
+	width: 300px;
+	height: 300px;	
+	display: none;
+	background: #111;
+	z-index: 1000;
+}
+
+#initload img
+{
+	position: absolute;
+	left: 134px;
+	top: 134px;
+}
+
 #gallery-wrapper
 {
 	position: absolute;
@@ -41,7 +58,8 @@ img
 	width: 100%;
 	text-align: center;
 	position: absolute;
-	top: 45%
+	top: 45%;
+	display: none;
 }
 
 #fv_pic

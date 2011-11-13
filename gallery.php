@@ -35,9 +35,17 @@ if(isset($_GET["album"])){
 <iframe id="fv_top_ad_iframe" src="fvtopad.php"></iframe>
 </div>
 
+<div id="initload">
+	<img src="images/ajax-loader.gif" />
+</div>
+
 <div id="full_view">
 	<div class="fv_nav" id="next"></div>
 	<div class="fv_nav" id="prev"></div>
+
+	<div id="fv_loading">
+        <img src="images/ajax-loader.gif" />
+    </div>
 
 	<div id="fv_close">
     	<div class="fv_close_cross" id="cross1"></div>
@@ -52,9 +60,7 @@ if(isset($_GET["album"])){
     	<textarea id="link_url_tb" readonly="readonly"></textarea>
     </div>
     
-    <div id="fv_loading">
-    	<img src="images/ajax-loader.gif" />
-    </div>
+   
     
     <div id="fv_pic_div">
     	<!--<img id="fv_pic" src="photos/events/bruinbash2011/IMG_9486.jpg"/>-->
@@ -102,7 +108,7 @@ foreach($files as $key => $value)
 		$thumb = new SimpleImage();
 		$thumb->load($value);
 		$thumb->resizeToHeight($thumb_height);
-		$thumb->save("$dir/thumbs/$fname", IMAGETYPE_JPEG, 90, null);
+		$thumb->save("$dir/thumbs/$fname", IMAGETYPE_JPEG, 90, null);	
 	}
 	
 	$extra_class = "";
@@ -115,7 +121,6 @@ foreach($files as $key => $value)
 	//$link = Utils::make_a($img_field, "javascript: show_full_view();");
 	echo Utils::make_div($img_field, "thumb_box$extra_class", "div$key");
 }
-
 
 ?>
 
