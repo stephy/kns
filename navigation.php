@@ -22,9 +22,9 @@
 		<li><a href="index.php">HOME</a></li>
     	<li><a href="#">PORTFOLIO</a>
         	<ul>
-            <li><a href="portfolio/portraits/" title="Los Angeles Photographers - Portrait Portfolio">PORTRAITS</a></li>
-            <li><a href="portfolio/landscape/" title="Los Angeles Photographers - Landscape Portfolio">LANDSCAPE</a></li>
-            <li><a href="portfolio/cinemagraphs/" title="Los Angeles Photographers - Cinemagraphs Portfolio">CINEMAGRAPHS</a></li>
+            <li><a href="foliogallery.php?album=portfolio/portraits" title="Los Angeles Photographers - Portrait Portfolio">PORTRAITS</a></li>
+            <li><a href="foliogallery.php?album=portfolio/landscape" title="Los Angeles Photographers - Landscape Portfolio">LANDSCAPE</a></li>
+            <li><a href="foliogallery.php?album=portfolio/cinemagraphs" title="Los Angeles Photographers - Cinemagraphs Portfolio">CINEMAGRAPHS</a></li>
             </ul>
         </li>
         <li><a href="ucla_events_photos.php" title="UCLA Events Pictures and Photos">UCLA EVENTS PHOTOS</a></li>
