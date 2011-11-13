@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<div id="wrapper-box">
  <?php include('navigation.php'); ?>
     <div id="content-title"><img src="images/banner-about-us.png" width="1000" height="182" alt="about us"></div>
 <div id="content">
@@ -36,12 +36,20 @@
     <div id="stephani-alves" class="thumb_photo"></div>
     <div id="stephani-alves-content">
     <h1>Stephani Alves</h1>
+    <p>Hi Everyone! Thank you for stopping by our website.</p>
+    <p>I am currently attending University of California, Los Angeles – UCLA - GO BRUINS! - as an undergraduate student majoring in Computer Science. I am originally from Southern Brazil. I moved to United States in 2006 and have been enjoying this country since. </p>
+
+<p>Other than coding, making websites and surfing the web I enjoy playing tennis, swimming, traveling and photography. I have been in 5 different continents photographing the world. That includes North, Central and South America, Europe and Asia.</p>
+<p>Scott Kelby is my inspirational photographer! </p>
+<p>You can visit my <a href="http://www.stephanimoroni.com">personal website</a>, if you want to know more about me</p>
+
+<p>Feel free to navigate through our website. I hope you enjoy it.</p>
     </div>  
     <!--about us -->
    
     </div>
 	<div style="clear:both"></div>
-
+</div>
  <?php include('footer.php'); ?>
 </body>
 </html>

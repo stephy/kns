@@ -44,9 +44,12 @@
 </head>
 
 <body>
-
+<div id="wrapper-box">
  <?php include('navigation.php'); ?>
-    <div id="content-title"><img src="images/banner-home.png" width="1000" height="182" alt="about us"></div>
+    <div id="content-title">
+      <p>&nbsp;</p>
+      <p><img src="images/banner-home.png" width="1000" height="182" alt="about us"></p>
+    </div>
     
 <div id="content">
 <div id="slider">
@@ -69,7 +72,7 @@
 
 </div>
 	<div style="clear:both"></div>
-
+</div>
  <?php include('footer.php'); ?>
 </body>
 </html>

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+	<div id="wrapper-box">
     <?php include('navigation.php'); ?>
     <div id="content-title"><img src="images/banner-ucla-events.png" width="1000" height="182" alt="about us"></div>
 	<div id="content">
@@ -70,6 +70,7 @@ google_ad_height = 600;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script></div>
 	<div style="clear:both"></div>
+ </div>
     
     <?php include('footer.php'); ?>
 

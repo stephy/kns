@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<div id="wrapper-box">
 <?php include('navigation.php') ?>
 <div id="wrapper">
 
@@ -56,6 +57,6 @@
 
 </div>
 
-
+</div>
 </body>
 </html>

@@ -6,6 +6,18 @@ body {
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	margin:0;
 }
+#wrapper-box{
+	margin: 0 auto;
+	width: 1000px;
+	padding:20px;
+	background-color:rgba(0,0,0,0.4);
+}
+#content a{
+	color:#CCC;
+}
+#content a:hover{
+	color:#FFF;
+}
 
 #slider{
 	margin: 5px 0 5px 0;
