@@ -28,7 +28,7 @@ class Utils
 				}
 				
 				closedir($dh);
-				sort($array);
+				//sort($array);
 				return $array;
 			}
 		}	
