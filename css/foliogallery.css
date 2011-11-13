@@ -39,7 +39,7 @@
 {
 	position: absolute;
 	height: 25px;
-	background: #DFF;
+	background: #333;
 	width: 200px;
 	opacity: 0.5;
 	letter-spacing: 5px;
@@ -49,18 +49,25 @@
 
 .filmstrip_scroll:hover
 {
-	background: #FFD;	
+	background: #000;	
 	opacity: 0.88;
 }
 
 #fs_scroll_up
 {
-	top: 100px;	
+	top: 100px;
+	background-image:url(../images/nav_arrows.png);
 }
 
 #fs_scroll_down
 {
 	bottom: 10px;
+	/* for firefox, safari, chrome, etc. */
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	/* for ie */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=6);
+	background-image:url(../images/nav_arrows.png);
 }
 
 .filler
