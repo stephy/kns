@@ -1,7 +1,8 @@
 // init
+var selectedThumb = null;
+
 $(document).ready(function(event)
 	{
-		
 		//controls for thumbs
 		$(".thumb").fadeTo("fast", 0.6);
         $(".thumb").hover(function() {
@@ -26,7 +27,28 @@ $(document).ready(function(event)
 		
 		$(".thumb:not(.filler)").click(function(event)
 			{
-				ViewPhoto($(event.target).attr("id"));
+				// dont reload if user clicks on the currently displayed pic
+				if($(this) == selectedThumb)
+					return;
+									
+				// restore fading to previously selected thumbnail
+				if(selectedThumb)
+				{
+					selectedThumb
+					.hover(
+						function() { $(this).fadeTo("fast", 1.0); }, 
+						function() { $(this).fadeTo("fast", 0.6); })
+					.fadeTo("fast", 0.6);
+				}
+				
+				// unbind hover fading from newly selected thumbnail
+				selectedThumb = $(this)
+				.unbind("mouseenter")
+				.unbind("mouseleave")
+				.fadeTo(0, 1); // cool syntax bro
+				
+				// load the full picture
+				ViewPhoto(selectedThumb.attr("id"));
 			});
 		
 		$(window).resize(Resize);
@@ -52,35 +74,34 @@ $(document).ready(function(event)
 		var spinner = new Spinner(opts).spin(target);
 		
 		// load first pic
-		ViewPhoto($(".thumb:not(.filler):first").children().attr("id"));
+		$(".thumb:not(.filler):first").click();
 	});
 
 // resize
 function Resize(event)
 {
+	// resize the filmstrip and full view area
 	var win_w = window.innerWidth;
 	var win_h = window.innerHeight - 100;
 	
 	var box_h = Math.min(Math.max(600, win_h), 1185) - 10;
-	//console.log(win_w + " , " + win_h);
 	
-	$("#filmstrip_wrap").height(box_h);
+	var fsw = $("#filmstrip_wrap")
+	fsw.height(box_h);
 	$("#viewer").height(box_h);
+	
+	// position the scroll down button
+	$("#fs_scroll_down").css("top", fsw.position().top + fsw.height() - 25);
+	
+	PositionLoadingAnim();
 	
 	PositionFullPic();
 }
 
 
 // view img
-var currentPic = "";
-
 function ViewPhoto(fname)
 {
-	if(currentPic == fname)
-		return;
-	else
-		currentPic = fname;
-	
 	$("#fv_pic").fadeOut("slow");
 	$("#loading").fadeIn("slow");
 	
@@ -105,6 +126,19 @@ function ViewPhoto(fname)
 				});
 		}
 	);
+}
+
+function PositionLoadingAnim()
+{
+	var box = $("#viewer");
+	var box_mid_w = box.position().left + box.width() / 2;	
+	var box_mid_h = box.position().top + box.height() / 2;
+	
+	$("#loading").css(
+		{
+			"left": box_mid_w - 25,
+			"top": box_mid_h - 25
+		});
 }
 
 function PositionFullPic()
@@ -145,8 +179,7 @@ function FilmstripScroll(direction)
 	var scroll_amt = vis_thumbs * 205;
 	//console.log(vis_thumbs + ", " + scroll_amt);
 	
-	if($(".filler:first").offset().top <= fs.offset().top + fs_h + 6
-			&& direction == "down")
+	if($(".filler:first").offset().top <= fs.offset().top + fs_h + 6 && direction == "down")
 		scroll_amt = 0;
 	
 	fs.animate(

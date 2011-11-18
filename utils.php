@@ -44,7 +44,7 @@ class Utils
 	
 	static function make_div($contents, $class, $id)
 	{
-		$id_attr = empty($id) ? "" : "\"id=$id\"";
+		$id_attr = empty($id) ? "" : "id=\"$id\"";
 		return "<div class=\"$class\" $id_attr >$contents</div>";	
 	}
 	

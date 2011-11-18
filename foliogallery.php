@@ -38,9 +38,9 @@
         {
             $pi = pathinfo($value);
             $fname = $pi["basename"];
-            $img_field = Utils::make_img_tag($value, "thumb_img", urlencode("$dir/$fname"), 200);
+            $img_field = Utils::make_img_tag($value, "thumb_img", $key, 200);
             
-            echo Utils::make_div($img_field, "thumb", "thumb$key");
+            echo Utils::make_div($img_field, "thumb", urlencode("$dir/$fname"));
         }
         for($i = 0; $i < 6; $i++)
             echo Utils::make_div("", "thumb filler", "");
