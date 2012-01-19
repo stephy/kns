@@ -7,7 +7,7 @@
 
 <META NAME="KEYWORDS" CONTENT="wedding, photography,ucla events, ucla photos, photographers, good photographers, cheap, affordable, los angeles, california, photo, picture, portrait, landscape, best canon, camera, pic, pix, photoshop, kevin, deng, chao, stephani, moroni, alves, stephani Alves, kevin Deng, Chao Deng, retouching"> 
 
-<title>Phographers in Los Angeles, Kevin and Stephani</title>
+<title>Photographers in Los Angeles, Kevin and Stephani</title>
 <link href="css/master.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 <script src="js/jquery-1.7.min.js" type="text/javascript"></script>
